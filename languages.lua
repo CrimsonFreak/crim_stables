@@ -332,6 +332,7 @@ Langs = {
     TipOfferSent = "Your offer has been registered",
     TipHorseDead = "Your horse is down",
     TipHorseDeadDefinitive = "Your horse can't be reanimated",
+    TipSuccessfulBuyComp = "You have bought a {0} for ${1}",
 
     TipErrorOnPurchase = "An error occurred on purchase",
     TipErrorOnUpdate = "An error occured when updating your default ride",
