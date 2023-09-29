@@ -27,7 +27,7 @@ function CallHorse(ride)
         Citizen.CreateThread(function()
 
             LoadModel(ride.model)
-            local spawnX, spawnY, spawnZ = table.unpack(getPositionBehindPlayer(x,y,z, GetEntityHeading(PlayerPedId()), 50))
+            local spawnX, spawnY, spawnZ = table.unpack(getPositionBehindPlayer(x,y,z, GetEntityHeading(PlayerPedId()), 20))
             local retVal, spawn, spawn2 = GetClosestRoad(spawnX, spawnY , spawnZ, 0.0, 25, true);
             local horsePed = CreatePed(ride.model, spawn[1], spawn[2], spawn[3], 0.0, true, true, false, false);
             ride.pedId = horsePed
