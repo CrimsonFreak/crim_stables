@@ -56,7 +56,7 @@ function BuyCompsMenu({ Comps, buyable, horseId }) {
                     compType: viewType.type,
                     compModel: variants[model.v],
                     price: buyable ? variants.at(-1) : 0,
-                    horseId
+                    horseId: horseId.toString()
                   })
                 }}>{buyable ? `Acheter pour $ ${variants.at(-1)}` : "Équiper"}</button>
               </span>

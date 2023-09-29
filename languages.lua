@@ -78,6 +78,7 @@ Langs = {
     TipOfferSent = "Votre offre a été enregistrée",
     TipHorseDead = "Votre cheval est à terre",
     TipHorseDeadDefinitive = "Votre cheval a succombé à ses blessures",
+    TipSuccessfulBuyComp = "Vous avez acheté {0} pour {1}",
 
     TipErrorOnPurchase = "Une erreur est survenue lors de l'achat",
     TipErrorOnUpdate = "Une erreur est survenue lors du changement",

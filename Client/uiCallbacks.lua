@@ -90,6 +90,7 @@ RegisterNuiCallback("buyComp", function(data, callback)
             break
         end
     end
+    print(data.horseId)
     TriggerServerEvent(Events.onBuyComp, data.compModel, data.compType, data.price, data.horseId, currentRide.comps, Stable.availableComps);
 end)
 

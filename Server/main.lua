@@ -108,10 +108,11 @@ RegisterNetEvent(Events.onBuyComp, function(compModel, compType, price, horseId,
             end
         end
     end
+    print(horseId)
     db:execute("UPDATE stables SET `gear` = ? WHERE `id` = ?", {json.encode(horseComps), horseId}, function(result)
         if result.affectedRows > 0 then
             TriggerClientEvent("vorp:TipRight", src,
-                Config.Lang.SuccessfulBuyComp:gsub("%{0}", compType):gsub("%{1}", price), 4000)
+                Config.Lang.TipSuccessfulBuyComp:gsub("%{0}", compType):gsub("%{1}", price), 4000)
             if not alreadyHasComp then
                 table.insert(compsForDB, 1, compModel)
                 db:execute("UPDATE horse_complements SET `complements` = ? WHERE `charidentifier` = ?",
@@ -194,14 +195,16 @@ RegisterNetEvent(Events.onTransferRecieve, function(rideId, accepted, price, act
             LoadStableContent(src, id)
         end)
     elseif player.money >= price then
-        player.removeCurrency(0, price)
         db:execute("UPDATE stables SET status = NULL, charidentifier = ? WHERE `id` = ?", {id, rideId}, function()
             TriggerClientEvent("vorp:TipRight", src, Config.Lang.TipOfferAccepted:gsub("%{price}", price), 4000)
             LoadStableContent(src, id)
+            player.removeCurrency(0, price)
             if targetSource ~= nil then
-                
+                local tPlayer = VorpCore.getUser(targetSource).getUsedCharacter
+                tPlayer.addCurrency(0, price)
                 LoadStableContent(targetSource, targetChar)
             end
+            -- //TODO add currency to seller if disconnected
         end)
     elseif player.money < price then
         TriggerClientEvent("vorp:TipRight", src, Config.Lang.TipCantAfford .. " " .. Config.Lang.TipOfferStillOn, 4000)
@@ -219,7 +222,7 @@ RegisterNetEvent(Events.setDefault, function(newRide, prevRide)
     local src = source
     local player = VorpCore.getUser(src).getUsedCharacter
     local id = player.charIdentifier
-    db:execute("UPDATE stables SET `isDefault` = 1 WHERE `id` = ?", {newRide}, function(updated,b)
+    db:execute("UPDATE stables SET `isDefault` = 1 WHERE `id` = ?", {newRide}, function(updated, b)
 
         if updated.affectedRows > 0 and prevRide ~= nil then
             db:execute("UPDATE stables SET `isDefault` = 0 WHERE `id` = ?", {prevRide}, function(secondUpdate)
@@ -251,7 +254,7 @@ RegisterNetEvent(Events.onHorseDown, function(rideId, killerObjectHash)
             if updated.affectedRows > 0 then
                 db:execute("SELECT injured FROM stables WHERE `id` = ?", {rideId}, function(result)
                     if result[1].injured >= Config.LongTermHealth then
-                        db:execute("DELETE FROM stables WHERE `id` = ?", {rideId}, function(deleted) 
+                        db:execute("DELETE FROM stables WHERE `id` = ?", {rideId}, function(deleted)
                             if deleted.affectedRows > 0 then
                                 TriggerClientEvent("vorp:TipRight", src, Config.Lang.TipHorseDeadDefinitive, 4000)
                                 LoadStableContent(src, id)
