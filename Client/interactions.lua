@@ -28,7 +28,6 @@ function CallHorse(ride)
 
             LoadModel(ride.model)
             local spawnX, spawnY, spawnZ = table.unpack(getPositionBehindPlayer(x,y,z, GetEntityHeading(PlayerPedId()), 50))
-            print (spawnX, spawnY, spawnZ)
             local retVal, spawn, spawn2 = GetClosestRoad(spawnX, spawnY , spawnZ, 0.0, 25, true);
             local horsePed = CreatePed(ride.model, spawn[1], spawn[2], spawn[3], 0.0, true, true, false, false);
             ride.pedId = horsePed
@@ -147,7 +146,6 @@ function CallCart(ride)
         LoadModel(ride.model)
 
         local spawnX, spawnY, spawnZ = table.unpack(getPositionBehindPlayer(x,y,z, GetEntityHeading(PlayerPedId()), 20))
-        print (spawnX, spawnY, spawnZ)
         local retVal, spawn, spawn2 = GetClosestRoad(spawnX, spawnY , spawnZ, 0.0, 25, true);
         ride.pedId = CreateVehicle(ride.model, spawn[1], spawn[2], spawn[3], 0,true, true, false, true)
         Citizen.InvokeNative(0xAF35D0D2583051B0, ride.pedId, true) -- SetPedDefaultOutfit

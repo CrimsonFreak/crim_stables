@@ -90,7 +90,6 @@ RegisterNuiCallback("buyComp", function(data, callback)
             break
         end
     end
-    print(data.horseId)
     TriggerServerEvent(Events.onBuyComp, data.compModel, data.compType, data.price, data.horseId, currentRide.comps, Stable.availableComps);
 end)
 
@@ -102,7 +101,6 @@ RegisterNuiCallback("transfer", function(data, callback)
     local actPlayers = {}
     for i, v in ipairs(GetActivePlayers()) do
         actPlayers[i] = GetPlayerServerId(v)
-        print(v, actPlayers[i])
     end
     TriggerServerEvent(Events.onTransfer, data.rideId, data.selectedChar, data.price, actPlayers)
 end)
@@ -111,7 +109,6 @@ RegisterNuiCallback("transferRecieve", function(data, callback)local actPlayers 
     local actPlayers = {}
     for i, v in ipairs(GetActivePlayers()) do
         actPlayers[i] = GetPlayerServerId(v)
-        print(v, actPlayers[i])
     end
     TriggerServerEvent(Events.onTransferRecieve, data.rideId, data.state, data.price, actPlayers)
 end)

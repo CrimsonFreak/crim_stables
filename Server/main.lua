@@ -108,7 +108,7 @@ RegisterNetEvent(Events.onBuyComp, function(compModel, compType, price, horseId,
             end
         end
     end
-    print(horseId)
+    
     db:execute("UPDATE stables SET `gear` = ? WHERE `id` = ?", {json.encode(horseComps), horseId}, function(result)
         if result.affectedRows > 0 then
             TriggerClientEvent("vorp:TipRight", src,
@@ -247,7 +247,6 @@ RegisterNetEvent(Events.onHorseDown, function(rideId, killerObjectHash)
     local src = source
     local player = VorpCore.getUser(src).getUsedCharacter
     local id = player.charIdentifier
-    print(rideId .. " was killed by " .. killerObjectHash)
     if Config.HardDeath then
         local LTDamages = DeathReasons[killerObjectHash] or DeathReasons.Default
         db:execute("UPDATE stables SET injured = injured + ? WHERE `id` = ?", {LTDamages, rideId}, function(updated)
