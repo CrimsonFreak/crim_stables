@@ -101,12 +101,18 @@ RegisterNuiCallback("transfer", function(data, callback)
     local actPlayers = {}
     for i, v in ipairs(GetActivePlayers()) do
         actPlayers[i] = GetPlayerServerId(v)
+        print(v, actPlayers[i])
     end
     TriggerServerEvent(Events.onTransfer, data.rideId, data.selectedChar, data.price, actPlayers)
 end)
 
-RegisterNuiCallback("transferRecieve", function(data, callback)
-    TriggerServerEvent(Events.onTransferRecieve, data.rideId, data.state, data.price, GetActivePlayers())
+RegisterNuiCallback("transferRecieve", function(data, callback)local actPlayers = {}
+    local actPlayers = {}
+    for i, v in ipairs(GetActivePlayers()) do
+        actPlayers[i] = GetPlayerServerId(v)
+        print(v, actPlayers[i])
+    end
+    TriggerServerEvent(Events.onTransferRecieve, data.rideId, data.state, data.price, actPlayers)
 end)
 
 RegisterNuiCallback("free", function(data, callback)
