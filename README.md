@@ -36,6 +36,7 @@ To do so (linux):
 - Ctrl + C to quit if stalled (the script tends to not termlinate by itself, even though the work has been done alright)
 
 Note that you will need to have nodejs and npm installed on your machine
+**Also you have to fill in your DB credentials in index.js, I'll make it easier in upcoming updates**
 
 ## Translation
 
