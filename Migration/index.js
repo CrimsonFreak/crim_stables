@@ -1,10 +1,10 @@
 const knex = require('knex')({
   client: 'mysql2',
   connection: {
-    host : 'redm.crimsonfreak.com',
+    host : 'YOUR_ENDPOINT or localhost',
     port : 3306,
-    user : 'redm',
-    password : 'a strong password!',
+    user : 'Your DB user',
+    password : 'Your DB Password',
     database : 'vorpv2'
   }
 });
