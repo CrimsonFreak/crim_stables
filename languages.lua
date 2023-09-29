@@ -14,7 +14,7 @@ Langs = {
 
     MyRides = "Mes montures",
     Transfer = "Transférer",
-    RidesAwaitingTranfer = "Montures en attente de transfert",
+    RidesAwaitingTransfer = "Montures en attente de transfert",
     FreeRide = "Relâcher",
     to = "à",
 
@@ -259,7 +259,7 @@ Langs = {
 
     MyRides = "My rides",
     Transfer = "Transfer",
-    RidesAwaitingTranfer = "Rides awaiting transfer",
+    RidesAwaitingTransfer = "Rides awaiting transfer",
     FreeRide = "Free",
     to = "to",
 
