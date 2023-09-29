@@ -82,3 +82,8 @@ This is a new feature, you can now define which horses and carts a vendor has to
 | key | type | description |
 | --- | ---- | ----------- |
 | key or default | `<string\|pair<string,number>>` | Two types are accepted here. Either `{"RIDE_NAME_HASH"}` or `{RIDE_NAME_HASH = price}`. the first retrieves the price defined in `Data[rideType]`, the latter defines a custom price for this vendor |
+
+## Developpers
+The UI is a vite+react app. run `npm run build` to apply any changes you make. If you want to test it in a dev environment you can run `npm run dev`, but you'll need to feed it with relevant data to view anything.
+
+The lua code is currently lacking comments, I'll make sure to add more as time and commits goes.
