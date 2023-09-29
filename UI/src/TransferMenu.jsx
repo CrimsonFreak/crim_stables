@@ -48,7 +48,7 @@ function TransferModal({ rideId, rideName, characters }) {
             }} />
             <div className="char-list">
               {
-                matchingChars.map(char => {
+                matchingChars.sort((a,b) => a[0].localeCompare(b[0])).map(char => {
                   return <div className={"char " + (selectedChar == char.charidentifier ? "active" : "")} key={char.charidentifier} onClick={() => setSelectedChar(char.charidentifier)}>{char.firstname} {char.lastname}</div>
                 })
               }

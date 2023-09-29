@@ -75,7 +75,7 @@ function BuyRideMenu({ rideType, currentRidesList }) {
           return;
         }
       });
-      return Object.entries(categories).map(([catName, catObj]) => <span key={catName} onClick={(e) => {
+      return Object.entries(categories).sort((a,b) => a[0].localeCompare(b[0])).map(([catName, catObj]) => <span key={catName} onClick={(e) => {
         setCurrentCat(catObj)
         setCurrentCatName(catName)
       }}>
@@ -104,7 +104,7 @@ function BuyRideMenu({ rideType, currentRidesList }) {
         }
         categories.others ? categories.others[rideName] = ridePrice : categories.others = { [rideName]: ridePrice };
       });
-      return Object.entries(categories).map(([catName, catObj]) => <span key={catName} onClick={(e) => {
+      return Object.entries(categories).sort((a,b) => a[0].localeCompare(b[0])).map(([catName, catObj]) => <span key={catName} onClick={(e) => {
         setCurrentCat(catObj)
         setCurrentCatName(catName)
       }}>
