@@ -108,6 +108,17 @@ RegisterNetEvent(Events.onBuyComp, function(compModel, compType, price, horseId,
             end
         end
     end
+
+    -- This removes the equipement of the horse if the translation key has changed to avoid doubles
+    -- //TODO replace with the current key rather than deleting for QOL (keep in mind that the players keep their stuff in horse_complements)
+
+    for k, v in pairs(horseComps) do
+        if Config.StaticData.Complements[k] == nil then
+            horseComps[k] = nil
+        end
+    end
+
+    print(json.encode(horseComps), alreadyHasComp)
     
     db:execute("UPDATE stables SET `gear` = ? WHERE `id` = ?", {json.encode(horseComps), horseId}, function(result)
         if result.affectedRows > 0 then
