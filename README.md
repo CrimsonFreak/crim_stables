@@ -2,6 +2,8 @@
 
 **I am not part of the VORP dev team, I just made this plugin based on their work in C#**
 
+**PLUGIN NOT FULLY STABLE YET** (lol)
+
 It is with great pleasure that I will introduce you to this plugin. The goal of it's making was to allow an easier workflow on vorp_stables, and to add a few features.
 
 ## New features
