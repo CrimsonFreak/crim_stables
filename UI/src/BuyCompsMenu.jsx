@@ -48,7 +48,7 @@ function BuyCompsMenu({ Comps, buyable, horseId }) {
               <span key={compType} onClick={() => setViewType({...compModels, type: compType})}>{compType}</span>
             )
             : Object.entries(viewType).map(([modelName, variants]) =>
-              variants.length > 0 &&
+              variants.length > 0 && modelName !== "type" && 
               <span key={modelName} onClick={() => { setModel({ name: modelName, variants, v: 0 }) }}>
                 <label>{modelName} {modelName === model?.name ? "◄ " + model.v + " ►" : null}</label>
                 <button onClick={() => {
