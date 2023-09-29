@@ -1,5 +1,7 @@
 # crim_stables / vorp_stables-lua
 
+**I am not part of the VORP dev team, I just made this plugin base on their work in C#**
+
 It is with great pleasure that I will introduce you to this plugin. The goal of it's making was to allow an easier workflow on vorp_stables, and to add a few features.
 
 ## New features
