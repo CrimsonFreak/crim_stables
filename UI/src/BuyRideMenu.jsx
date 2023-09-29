@@ -129,8 +129,8 @@ function BuyRideMenu({ rideType, currentRidesList }) {
               rideModel,
               price
             })
-          }}>{Config.Lang.BuyFor.replace("{price}", price)}</button>
-          : <i className="price">{Config.Lang.DollarBeforeOrAfterPrice.replace("{price}", price)}</i>
+          }}>{Data.Lang.BuyFor.replace("{price}", price)}</button>
+          : <i className="price">{Data.Lang.DollarBeforeOrAfterPrice.replace("{price}", price)}</i>
       }
     </span>
   }
@@ -141,8 +141,8 @@ function BuyRideMenu({ rideType, currentRidesList }) {
     <div className="menu-wrap">
       <h1>{
         currentCat
-          ? `${Config.Lang.BuyA} ${currentCatName}`
-          : `${rideType === RideTypes.horse ? Config.Lang.BuyA : Config.Lang.BuyA2} ${rideType === RideTypes.horse ? Config.Lang.horse : Config.Lang.cart}`
+          ? `${Data.Lang.BuyA} ${currentCatName}`
+          : `${rideType === RideTypes.horse ? Data.Lang.BuyA : Data.Lang.BuyA2} ${rideType === RideTypes.horse ? Data.Lang.horse : Data.Lang.cart}`
       }</h1>
       <menu>
         <DisplayRidesFromType />

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { RouteCtx } from "./App";
+import { Data, RouteCtx } from "./App";
 import axios from "axios";
 
 function MyRidesMenu({ Data: { characterId, rides } }) {
@@ -61,25 +61,25 @@ function MyRidesMenu({ Data: { characterId, rides } }) {
                   axios.post(`https://${GetParentResourceName()}/free`, { rideId: ride.id });
                 }
                 setModalOn(false)
-              }}>{Config.Lang.Ok}</button>
-              <button onClick={() => { setModalOn(false) }}>{Config.Lang.Cancel}</button>
+              }}>{Data.Lang.Ok}</button>
+              <button onClick={() => { setModalOn(false) }}>{Data.Lang.Cancel}</button>
             </span>
           </div>
         </div>
       }
-      <h1>{Config.Lang.MyRides}</h1>
-      <h3>◄ {ride.name}{ride.isDefault ? ` (${Config.Lang.Active})` : null} ►</h3>
+      <h1>{Data.Lang.MyRides}</h1>
+      <h3>◄ {ride.name}{ride.isDefault ? ` (${Data.Lang.Active})` : null} ►</h3>
       <menu>
-        {!ride.isDefault && <span onClick={setDefault}>{Config.Lang.ChooseAsActive.replace("{rideType}", Config.Lang[ride.type])}</span>}
+        {!ride.isDefault && <span onClick={setDefault}>{Data.Lang.ChooseAsActive.replace("{rideType}", Data.Lang[ride.type])}</span>}
         {
           ride.type == "horse" &&
           <>
-            <span onClick={() => setRoute("/buycomps?" + ride.id)}>{Config.Lang.BuyEquipment}</span>
-            <span onClick={() => setRoute("/changecomps?" + ride.id)}>{Config.Lang.ModifyEquipment}</span>
+            <span onClick={() => setRoute("/buycomps?" + ride.id)}>{Data.Lang.BuyEquipment}</span>
+            <span onClick={() => setRoute("/changecomps?" + ride.id)}>{Data.Lang.ModifyEquipment}</span>
           </>
         }
-        <span onClick={() => setRoute("/transfer?" + ride.id)}>{Config.Lang.Transfer}</span>
-        <span onClick={() => setModalOn(true)}>{Config.Lang.FreeRide}</span>
+        <span onClick={() => setRoute("/transfer?" + ride.id)}>{Data.Lang.Transfer}</span>
+        <span onClick={() => setModalOn(true)}>{Data.Lang.FreeRide}</span>
       </menu>
     </div>
   )

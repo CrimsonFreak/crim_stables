@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { RouteCtx } from "./App";
+import { Data, RouteCtx } from "./App";
 import axios from "axios";
 
 function TransferModal({ rideId, rideName, characters }) {
@@ -20,16 +20,16 @@ function TransferModal({ rideId, rideName, characters }) {
       priceSel
         ? <div className="modal-bg">
           <div className="modal">
-            <h3>{Config.Lang.Transfer} {rideName} {Config.Lang.To} {matchingChars.find(c => c.charidentifier == selectedChar).firstname} {matchingChars.find(c => c.charidentifier == selectedChar).lastname}</h3>
-            <input id="price" type="text" placeholder={Config.Lang.PricePlaceholder} key="price" />
+            <h3>{Data.Lang.Transfer} {rideName} {Data.Lang.To} {matchingChars.find(c => c.charidentifier == selectedChar).firstname} {matchingChars.find(c => c.charidentifier == selectedChar).lastname}</h3>
+            <input id="price" type="text" placeholder={Data.Lang.PricePlaceholder} key="price" />
             <span>
               <button onClick={() => {
                 if (!selectedChar) return;
                 const input = Number(document.querySelector('#price').value);
                 const p = isNaN(input) ? 0 : input;
                 axios.post(`https://${GetParentResourceName()}/transfer`, { rideId, selectedChar, price: p });
-              }}>{Config.Lang.Ok}</button>
-              <button onClick={() => { setRoute("/myrides") }}>{Config.Lang.Cancel}</button>
+              }}>{Data.Lang.Ok}</button>
+              <button onClick={() => { setRoute("/myrides") }}>{Data.Lang.Cancel}</button>
             </span>
           </div>
         </div>
@@ -37,8 +37,8 @@ function TransferModal({ rideId, rideName, characters }) {
 
         : <div className="modal-bg">
           <div className="modal">
-            <h3>{Config.Lang.Transfer} {rideName}</h3>
-            <input id="search" type="text" key="search" placeholder={Config.Lang.NamePlaceholder} onChange={(e) => {
+            <h3>{Data.Lang.Transfer} {rideName}</h3>
+            <input id="search" type="text" key="search" placeholder={Data.Lang.NamePlaceholder} onChange={(e) => {
               setMatchingChars(cs =>
                 [...cs.filter(c =>
                   `${c.firstname} ${c.lastname}`.toLowerCase()
@@ -57,8 +57,8 @@ function TransferModal({ rideId, rideName, characters }) {
               <button onClick={() => {
                 if (!selectedChar) return;
                 setPriceSel(true);
-              }}>{Config.Lang.Ok}</button>
-              <button onClick={() => { setRoute("/myrides") }}>{Config.Lang.Cancel}</button>
+              }}>{Data.Lang.Ok}</button>
+              <button onClick={() => { setRoute("/myrides") }}>{Data.Lang.Cancel}</button>
             </span>
           </div>
         </div>

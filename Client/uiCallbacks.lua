@@ -98,7 +98,11 @@ RegisterNuiCallback("setDefault", function(data, callback)
 end)
 
 RegisterNuiCallback("transfer", function(data, callback)
-    TriggerServerEvent(Events.onTransfer, data.rideId, data.selectedChar, data.price, GetActivePlayers())
+    local actPlayers = {}
+    for i, v in ipairs(GetActivePlayers()) do
+        actPlayers[i] = GetPlayerServerId(v)
+    end
+    TriggerServerEvent(Events.onTransfer, data.rideId, data.selectedChar, data.price, actPlayers)
 end)
 
 RegisterNuiCallback("transferRecieve", function(data, callback)
