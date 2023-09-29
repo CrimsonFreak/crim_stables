@@ -1,5 +1,7 @@
 # crim_stables / vorp_stables-lua
 
+**I am not part of the VORP dev team, I just made this plugin based on their work in C#**
+
 It is with great pleasure that I will introduce you to this plugin. The goal of it's making was to allow an easier workflow on vorp_stables, and to add a few features.
 
 ## New features
@@ -33,9 +35,10 @@ To do so (linux):
 - cd PATH_TO_PLUGIN/Migrations
 - npm i
 - npm start
-- Ctrl + C to quit if stalled (the script tends to not termlinate by itself, even though the work has been done alright)
+- Ctrl + C to quit if stalled (the script tends to not terminate by itself, even though the work has been done alright)
 
 Note that you will need to have nodejs and npm installed on your machine
+**Also you have to fill in your DB credentials in index.js, I'll make it easier in upcoming updates**
 
 ## Translation
 
