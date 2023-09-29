@@ -57,7 +57,7 @@ function App() {
   else return (
     <RouteCtx.Provider value={setRoute}>
       {
-        route === "/" && <MainMenu transferedRides={m_Data.player.transferedRides}/> ||
+        route === "/" && <MainMenu transferedRides={m_Data.player?.transferedRides}/> ||
         route === "/buyhorse" && <BuyRideMenu rideType={RideTypes.horse} currentRidesList={{ carts: m_Data.current.carts || Data.Carts, horses: m_Data.current.horses || Data.Horses }} /> ||
         route === "/buycart" && <BuyRideMenu rideType={RideTypes.cart} currentRidesList={{ carts: m_Data.current.carts || Data.Carts, horses: m_Data.current.horses || Data.Horses }} /> ||
         route.startsWith("/buycomps") && <BuyCompsMenu Comps={m_Data.Complements} buyable={true} horseId={Number(route.split("?")[1])} /> ||
@@ -68,7 +68,7 @@ function App() {
           rideName={m_Data.player.rides.find(r => r.id == Number(route.split("?")[1])).name}
           characters={m_Data.characters}
         /> ||
-        route.startsWith("/recieve") && <TransferRecieve
+        route.startsWith("/recieve") && m_Data.player.transferedRides && <TransferRecieve
           rideId={Number(m_Data.player.transferedRides[0].id)}
           rideName={m_Data.player.transferedRides[0].name}
           characters={m_Data.characters}

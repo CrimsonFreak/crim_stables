@@ -250,7 +250,7 @@ function DeathManager()
     if CurrentHorse == nil or CurrentHorse.isDead or not CurrentHorse.pedId then
         return
     end
-    if IsPedDeadOrDying(CurrentHorse.pedId, false) then
+    if IsPedDeadOrDying(CurrentHorse.pedId, false) and GetPedCauseOfDeath(CurrentHorse.pedId) ~= 0 then
         Citizen.CreateThread(function()
             CurrentHorse.isDead = true
             local killerHash = GetPedCauseOfDeath(CurrentHorse.pedId)

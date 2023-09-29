@@ -20,7 +20,7 @@ function MainMenu({transferedRides}) {
         <span onClick={() => setRoute("/buycart")}>{Data.Lang.BuyACart}</span>
         <span onClick={() => setRoute("/myrides")}>{Data.Lang.MyRides}</span>
         {
-          transferedRides && transferedRides.length 
+          transferedRides && transferedRides?.length 
           ? <span onClick={() => setRoute("/recieve")}>{Data.Lang.RidesAwaitingTransfer}</span>
           : null
         }

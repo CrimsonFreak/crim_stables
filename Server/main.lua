@@ -248,6 +248,7 @@ RegisterNetEvent(Events.onHorseDown, function(rideId, killerObjectHash)
     local player = VorpCore.getUser(src).getUsedCharacter
     local id = player.charIdentifier
     if Config.HardDeath then
+        print("Killed by " .. tostring(killerObjectHash))
         local LTDamages = DeathReasons[killerObjectHash] or DeathReasons.Default
         db:execute("UPDATE stables SET injured = injured + ? WHERE `id` = ?", {LTDamages, rideId}, function(updated)
             if updated.affectedRows > 0 then
