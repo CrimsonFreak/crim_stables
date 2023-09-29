@@ -199,6 +199,7 @@ RegisterNetEvent(Events.onTransferRecieve, function(rideId, accepted, price, act
             TriggerClientEvent("vorp:TipRight", src, Config.Lang.TipOfferAccepted:gsub("%{price}", price), 4000)
             LoadStableContent(src, id)
             if targetSource ~= nil then
+                
                 LoadStableContent(targetSource, targetChar)
             end
         end)

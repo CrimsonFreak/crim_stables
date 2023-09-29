@@ -1,11 +1,11 @@
 CurrentHorse = nil
 CurrentCart = nil
 
-function getPositionBehindPlayer(playerX, playerY, playerZ, playerHeading)
+function getPositionBehindPlayer(playerX, playerY, playerZ, playerHeading, dist)
     local headingRad = math.rad(playerHeading)
 
-    local newX = playerX - 50 * math.cos(headingRad)
-    local newY = playerY - 50 * math.sin(headingRad)
+    local newX = playerX - dist * math.cos(headingRad)
+    local newY = playerY - dist * math.sin(headingRad)
 
     return {newX,newY, playerZ}
 end
@@ -27,7 +27,7 @@ function CallHorse(ride)
         Citizen.CreateThread(function()
 
             LoadModel(ride.model)
-            local spawnX, spawnY, spawnZ = table.unpack(getPositionBehindPlayer(x,y,z, GetEntityHeading(PlayerPedId())))
+            local spawnX, spawnY, spawnZ = table.unpack(getPositionBehindPlayer(x,y,z, GetEntityHeading(PlayerPedId()), 50))
             print (spawnX, spawnY, spawnZ)
             local retVal, spawn, spawn2 = GetClosestRoad(spawnX, spawnY , spawnZ, 0.0, 25, true);
             local horsePed = CreatePed(ride.model, spawn[1], spawn[2], spawn[3], 0.0, true, true, false, false);
@@ -146,10 +146,10 @@ function CallCart(ride)
     if ride.pedId == nil or not DoesEntityExist(ride.pedId) then
         LoadModel(ride.model)
 
-        local spawnX, spawnY, spawnZ = table.unpack(getPositionBehindPlayer(x,y,z, GetEntityHeading(PlayerPedId())))
+        local spawnX, spawnY, spawnZ = table.unpack(getPositionBehindPlayer(x,y,z, GetEntityHeading(PlayerPedId()), 20))
         print (spawnX, spawnY, spawnZ)
         local retVal, spawn, spawn2 = GetClosestRoad(spawnX, spawnY , spawnZ, 0.0, 25, true);
-        ride.pedId = CreateVehicle(ride.model, spawn[1], spawn[2], spawn[3], true, true, false, true)
+        ride.pedId = CreateVehicle(ride.model, spawn[1], spawn[2], spawn[3], 0,true, true, false, true)
         Citizen.InvokeNative(0xAF35D0D2583051B0, ride.pedId, true) -- SetPedDefaultOutfit
 
         local blip = Citizen.InvokeNative(0x23F74C2FDA6E7C61, -1230993421, horsePed) -- SetBlip
