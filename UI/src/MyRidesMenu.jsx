@@ -34,14 +34,17 @@ function MyRidesMenu({ Data: { characterId, rides } }) {
 
   useEffect(() => {
     const ride = rides[currentRideIndex];
-    if (!ride) return;
-    axios.post(`https://${GetParentResourceName()}/activateCam`, { rideType: ride.type });
-    axios.post(`https://${GetParentResourceName()}/showRide`, {
-      rideType: ride.type,
-      rideName: ride.model,
-      rideComps: ride.comps
-    });
-  }, [currentRideIndex])
+    if (!ride || modalOn) return;
+    setTimeout(() => {
+
+      axios.post(`https://${GetParentResourceName()}/activateCam`, { rideType: ride.type });
+      axios.post(`https://${GetParentResourceName()}/showRide`, {
+        rideType: ride.type,
+        rideName: ride.model,
+        rideComps: ride.comps
+      });
+    }, 500)
+  }, [currentRideIndex, modalOn])
 
   function setDefault() {
     axios.post(`https://${GetParentResourceName()}/setDefault`, { newRide: ride.id, prevRide: rides.find(r => r.type === ride.type && r.isDefault)?.id });
