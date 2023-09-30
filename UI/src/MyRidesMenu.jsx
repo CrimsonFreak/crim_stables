@@ -60,7 +60,7 @@ function MyRidesMenu({ Data: { characterId, rides } }) {
                 if (confirm.toLowerCase() === ride.name.toLowerCase()) {
                   axios.post(`https://${GetParentResourceName()}/free`, { rideId: ride.id });
                 }
-                setModalOn(false)
+                setModalOn(false);
               }}>{Data.Lang.Ok}</button>
               <button onClick={() => { setModalOn(false) }}>{Data.Lang.Cancel}</button>
             </span>

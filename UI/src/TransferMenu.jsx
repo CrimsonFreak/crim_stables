@@ -28,6 +28,7 @@ function TransferModal({ rideId, rideName, characters }) {
                 const input = Number(document.querySelector('#price').value);
                 const p = isNaN(input) ? 0 : input;
                 axios.post(`https://${GetParentResourceName()}/transfer`, { rideId, selectedChar, price: p });
+                setRoute("/");
               }}>{Data.Lang.Ok}</button>
               <button onClick={() => { setRoute("/myrides") }}>{Data.Lang.Cancel}</button>
             </span>

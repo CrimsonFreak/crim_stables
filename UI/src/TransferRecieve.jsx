@@ -26,12 +26,14 @@ function TransferRecieve({ rideId, rideName, giverId, characters, price }) {
               rideId,
               price
             });
+            setRoute("/");
           }}>{Data.Lang.Accept}</button>
           <button onClick={() => { 
             axios.post(`https://${GetParentResourceName()}/transferRecieve`, {
               state: false,
               rideId
             });
+            setRoute("/");
              }}>{Data.Lang.Refuse}</button>
         </span>
       </div>
