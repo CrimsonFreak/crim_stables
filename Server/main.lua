@@ -63,27 +63,29 @@ function LoadStableContent(src, charId)
     end)
 end
 
-RegisterNetEvent(Events.onBuyRide, function(rideName, rideModel, rideType, ridePrice)
+RegisterNetEvent(Events.onBuyRide, function(rideName, rideModel, rideType, price)
+    price = tonumber(price)
     local src = source
     local player = VorpCore.getUser(src).getUsedCharacter
     local id = player.charIdentifier
 
-    if ridePrice > player.money then
+    if price > player.money then
         return TriggerClientEvent("vorp:TipRight", src, Config.Lang.TipCantAfford, 4000)
     end
 
-    player.removeCurrency(0, ridePrice)
+    player.removeCurrency(0, price)
     db:execute("INSERT INTO stables (`charidentifier`, `name`, `type`, `modelname`) VALUES (?, ?, ?,?)",
         {id, rideName, rideType, rideModel}, function(result)
             if result.affectedRows > 0 then
                 TriggerClientEvent("vorp:TipRight", src, Config.Lang.TipRidePurchased:gsub("%{rideName}", rideName)
-                    :gsub("%{price}", ridePrice), 4000)
+                    :gsub("%{price}", price), 4000)
                 LoadStableContent(src, id)
             end
         end)
 end)
 
 RegisterNetEvent(Events.onBuyComp, function(compModel, compType, price, horseId, horseComps, playerAvailableComps)
+    price = tonumber(price)
     local src = source
     local player = VorpCore.getUser(src).getUsedCharacter
     local id = player.charIdentifier
@@ -118,7 +120,6 @@ RegisterNetEvent(Events.onBuyComp, function(compModel, compType, price, horseId,
         end
     end
 
-    print(json.encode(horseComps), alreadyHasComp)
     
     db:execute("UPDATE stables SET `gear` = ? WHERE `id` = ?", {json.encode(horseComps), horseId}, function(result)
         if result.affectedRows > 0 then
@@ -185,6 +186,7 @@ RegisterNetEvent(Events.onTransfer, function(rideId, targetChar, price, activePl
 end)
 
 RegisterNetEvent(Events.onTransferRecieve, function(rideId, accepted, price, activePlayers)
+    price = tonumber(price)
     local src = source
     local player = VorpCore.getUser(src).getUsedCharacter
     local id = player.charIdentifier
