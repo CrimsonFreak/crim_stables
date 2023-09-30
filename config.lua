@@ -81,18 +81,10 @@ Config = {
             A_C_Horse_AmericanStandardbred_PalominoDapple = 7,
             A_C_Horse_AmericanStandardbred_SilverTailBuckskin = 7,
 
-            A_C_Horse_Ardennes_BayRoan = 7,
-            A_C_Horse_Ardennes_IronGreyRoan = 7,
-            A_C_Horse_Ardennes_StrawberryRoan = 7,
-
-            A_C_Horse_Belgian_BlondChestnut = 7,
-            A_C_Horse_Belgian_MealyChestnut = 7,
-
             A_C_Horse_Breton_GrulloDun = 7,
             A_C_Horse_Breton_RedRoan = 7,
             A_C_Horse_Breton_Sorrel = 7,
             A_C_Horse_Breton_SteelGrey = 7,
-            A_C_Horse_Breton_MealyDapple = 7,
             A_C_Horse_Breton_SealBrown = 7,
 
             A_C_Horse_KentuckySaddle_Black = 8,
@@ -104,19 +96,10 @@ Config = {
             A_C_Horse_Kladruber_Black = 40,
             A_C_Horse_Kladruber_Silver = 40,
             A_C_Horse_Kladruber_Cremello = 40,
-            A_C_Horse_Kladruber_Grey = 40,
-            A_C_Horse_Kladruber_DappleRoseGrey = 40,
-            A_C_Horse_Kladruber_White = 40,
 
-            A_C_Horse_Morgan_Bay = 9,
-            A_C_Horse_Morgan_BayRoan = 9,
             A_C_Horse_Morgan_FlaxenChestnut = 9,
             A_C_Horse_Morgan_LiverChestnut_PC = 9,
-            A_C_Horse_Morgan_Palomino = 9,
 
-            A_C_Horse_NorfolkRoadster_Black = 72,
-            A_C_Horse_NorfolkRoadster_DappledBuckskin = 72,
-            A_C_Horse_NorfolkRoadster_PiebaldRoan = 72,
             A_C_Horse_NorfolkRoadster_RoseGrey = 72,
             A_C_Horse_NorfolkRoadster_SpeckledGrey = 72,
             A_C_Horse_NorfolkRoadster_SpottedTricolor = 72,
@@ -125,14 +108,8 @@ Config = {
             A_C_Horse_Shire_LightGrey = 15,
             A_C_Horse_Shire_RavenBlack = 15,
 
-            A_C_Horse_SuffolkPunch_RedChestnut = 20,
-            A_C_Horse_SuffolkPunch_Sorrel = 20,
-
             A_C_Horse_TennesseeWalker_BlackRabicano = 8,
             A_C_Horse_TennesseeWalker_Chestnut = 8,
-            A_C_Horse_TennesseeWalker_DappleBay = 8,
-            A_C_Horse_TennesseeWalker_FlaxenRoan = 8,
-            A_C_Horse_TennesseeWalker_GoldPalomino_PC = 8,
             A_C_Horse_TennesseeWalker_MahoganyBay = 8,
             A_C_Horse_TennesseeWalker_RedRoan = 8,
 
@@ -141,23 +118,18 @@ Config = {
             A_C_Horse_Turkoman_Silver = 43,
 
             A_C_HorseMule_01 = 6,
-            A_C_Donkey_01 = 10,
 
         },
         carts = {
             huntercart01 = 50,
             cart01 = 30,
             cart02 = 23,
-            cart03 = 40,
             cart05 = 28,
-            cart06 = 55,
-            chuckwagon000x = 105,
             chuckwagon002x = 110,
             wagon02x = 100,
             wagon03x = 65,
             coach2 = 120,
             stagecoach001x = 80,
-            stagecoach003x = 73,
             supplywagon = 105
         }
     }, {
@@ -171,82 +143,49 @@ Config = {
         SpawnCart = {1414.53, -1294.22, 77.95, 285.53},
         CamCart = {1416.7, -1301.12, 81.0, -16.0, 0.0, 6.0},
         horses = {
-            A_C_Horse_AmericanStandardbred_Black = 7,
-            A_C_Horse_AmericanStandardbred_Buckskin = 7,
-            A_C_Horse_AmericanStandardbred_PalominoDapple = 7,
-            A_C_Horse_AmericanStandardbred_SilverTailBuckskin = 7,
+          A_C_Horse_Ardennes_BayRoan = 7,
+          A_C_Horse_Ardennes_IronGreyRoan = 7,
+          A_C_Horse_Ardennes_StrawberryRoan = 7,
 
-            A_C_Horse_Ardennes_BayRoan = 7,
-            A_C_Horse_Ardennes_IronGreyRoan = 7,
-            A_C_Horse_Ardennes_StrawberryRoan = 7,
+          A_C_Horse_Belgian_BlondChestnut = 7,
+          A_C_Horse_Belgian_MealyChestnut = 7,
 
-            A_C_Horse_Belgian_BlondChestnut = 7,
-            A_C_Horse_Belgian_MealyChestnut = 7,
+          A_C_Horse_KentuckySaddle_Black = 8,
+          A_C_Horse_KentuckySaddle_ButterMilkBuckskin_PC = 8,
+          A_C_Horse_KentuckySaddle_ChestnutPinto = 8,
+          A_C_Horse_KentuckySaddle_Grey = 8,
+          A_C_Horse_KentuckySaddle_SilverBay = 8,
 
-            A_C_Horse_Breton_GrulloDun = 7,
-            A_C_Horse_Breton_RedRoan = 7,
-            A_C_Horse_Breton_Sorrel = 7,
+          A_C_Horse_Kladruber_Grey = 40,
+          A_C_Horse_Kladruber_DappleRoseGrey = 40,
+          A_C_Horse_Kladruber_White = 40,
 
-            A_C_Horse_KentuckySaddle_Black = 8,
-            A_C_Horse_KentuckySaddle_ButterMilkBuckskin_PC = 8,
-            A_C_Horse_KentuckySaddle_ChestnutPinto = 8,
-            A_C_Horse_KentuckySaddle_Grey = 8,
-            A_C_Horse_KentuckySaddle_SilverBay = 8,
+          A_C_Horse_Morgan_Bay = 9,
+          A_C_Horse_Morgan_BayRoan = 9,
+          A_C_Horse_Morgan_Palomino = 9,
 
-            A_C_Horse_Kladruber_Black = 40,
-            A_C_Horse_Kladruber_Cremello = 40,
-            A_C_Horse_Kladruber_Grey = 40,
-            A_C_Horse_Kladruber_Silver = 40,
-            A_C_Horse_Kladruber_White = 40,
+          A_C_Horse_NorfolkRoadster_Black = 72,
+          A_C_Horse_NorfolkRoadster_DappledBuckskin = 72,
+          A_C_Horse_NorfolkRoadster_PiebaldRoan = 72,
 
-            A_C_Horse_Morgan_Bay = 9,
-            A_C_Horse_Morgan_BayRoan = 9,
-            A_C_Horse_Morgan_FlaxenChestnut = 9,
-            A_C_Horse_Morgan_LiverChestnut_PC = 9,
-            A_C_Horse_Morgan_Palomino = 9,
+          A_C_Horse_SuffolkPunch_RedChestnut = 20,
+          A_C_Horse_SuffolkPunch_Sorrel = 20,
 
-            A_C_Horse_NorfolkRoadster_Black = 72,
-            A_C_Horse_NorfolkRoadster_DappledBuckskin = 72,
-            A_C_Horse_NorfolkRoadster_PiebaldRoan = 72,
-            A_C_Horse_NorfolkRoadster_RoseGrey = 72,
-            A_C_Horse_NorfolkRoadster_SpeckledGrey = 72,
-            A_C_Horse_NorfolkRoadster_SpottedTricolor = 72,
+          A_C_Horse_TennesseeWalker_DappleBay = 8,
+          A_C_Horse_TennesseeWalker_FlaxenRoan = 8,
+          A_C_Horse_TennesseeWalker_GoldPalomino_PC = 8,
 
-            A_C_Horse_Shire_DarkBay = 15,
-            A_C_Horse_Shire_LightGrey = 15,
-            A_C_Horse_Shire_RavenBlack = 15,
+          A_C_HorseMule_01 = 6,
+          A_C_Donkey_01 = 10,
 
-            A_C_Horse_SuffolkPunch_RedChestnut = 20,
-            A_C_Horse_SuffolkPunch_Sorrel = 20,
-
-            A_C_Horse_TennesseeWalker_BlackRabicano = 8,
-            A_C_Horse_TennesseeWalker_Chestnut = 8,
-            A_C_Horse_TennesseeWalker_DappleBay = 8,
-            A_C_Horse_TennesseeWalker_FlaxenRoan = 8,
-            A_C_Horse_TennesseeWalker_GoldPalomino_PC = 8,
-            A_C_Horse_TennesseeWalker_MahoganyBay = 8,
-            A_C_Horse_TennesseeWalker_RedRoan = 8,
-
-            A_C_Horse_Turkoman_DarkBay = 43,
-            A_C_Horse_Turkoman_Gold = 43,
-            A_C_Horse_Turkoman_Silver = 43,
-
-            A_C_HorseMule_01 = 6
-
-        },
+      },
         carts = {
             huntercart01 = 50,
-            cart01 = 30,
-            cart02 = 23,
             cart03 = 40,
-            cart05 = 28,
             cart06 = 55,
             chuckwagon000x = 105,
-            chuckwagon002x = 110,
             wagon02x = 100,
             wagon03x = 65,
-            coach2 = 120,
-            stagecoach001x = 80,
             stagecoach003x = 73,
             supplywagon = 105
         }
@@ -273,10 +212,14 @@ Config = {
             A_C_Horse_Appaloosa_Leopard = 0,
             A_C_Horse_Appaloosa_LeopardBlanket = 0,
 
-            A_C_HORSE_MUSTANG_BLACKOVERO = 0,
+            A_C_Horse_Mustang_BlackOvero = 0,
             A_C_Horse_Mustang_GoldenDun = 0,
-            A_C_HORSE_MUSTANG_REDDUNOVERO = 0,
+            A_C_Horse_Mustang_GrulloDun = 0,
+            A_C_Horse_Mustang_TigerStripedBay = 0,
+            A_C_Horse_Mustang_RedDunOvero = 0,
             A_C_Horse_Mustang_WildBay = 0,
+            A_C_Horse_Mustang_Buckskin = 0,
+            A_C_Horse_Mustang_ChestNuttOvero = 0,
 
             A_C_Horse_Nokota_BlueRoan = 0,
             A_C_Horse_Nokota_ReverseDappleRoan = 0,
@@ -285,19 +228,9 @@ Config = {
         },
         carts = {
             huntercart01 = 50,
-            cart01 = 30,
-            cart02 = 23,
             cart03 = 40,
-            cart05 = 28,
-            cart06 = 55,
-            chuckwagon000x = 105,
             chuckwagon002x = 110,
             wagon02x = 100,
-            wagon03x = 65,
-            coach2 = 120,
-            stagecoach001x = 80,
-            stagecoach003x = 73,
-            supplywagon = 105
         }
     } --[[
     {

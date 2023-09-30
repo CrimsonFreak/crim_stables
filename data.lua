@@ -262,6 +262,8 @@ Data = {
         ["A_C_Horse_Mustang_WildBay"] = 100,
         ["A_C_Horse_Mustang_RedDunOvero"] = 100,
         ["A_C_Horse_Mustang_BlackOvero"] = 100,
+        ["A_C_Horse_Mustang_Buckskin"] = 100,
+        ["A_C_Horse_Mustang_ChestNuttOvero"] = 100,
 
         ["A_C_Horse_Nokota_BlueRoan"] = 100,
         ["A_C_Horse_Nokota_ReverseDappleRoan"] = 100,
