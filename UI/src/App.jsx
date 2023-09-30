@@ -56,7 +56,7 @@ function App() {
   else return (
     <RouteCtx.Provider value={setRoute}>
       {
-        route === "/" && <MainMenu transferedRides={m_Data.player?.transferedRides}/> ||
+        route === "/" && <MainMenu transferedRides={m_Data.player?.transferedRides} rides = {m_Data.player?.rides}/> ||
         route === "/buyhorse" && <BuyRideMenu rideType={RideTypes.horse} currentRidesList={{ carts: m_Data.current.carts || Data.Carts, horses: m_Data.current.horses || Data.Horses }} /> ||
         route === "/buycart" && <BuyRideMenu rideType={RideTypes.cart} currentRidesList={{ carts: m_Data.current.carts || Data.Carts, horses: m_Data.current.horses || Data.Horses }} /> ||
         route.startsWith("/buycomps") && <BuyCompsMenu Comps={m_Data.Complements} buyable={true} horseId={Number(route.split("?")[1])} /> ||

@@ -10,6 +10,7 @@ function MyRidesMenu({ Data: { characterId, rides } }) {
   const [timer, setTimer] = useState(true);
 
   useEffect(() => {
+    if(!rides?.length) return setRoute("/");
     document.onkeydown = (e) => {
       if (e.key === "ArrowLeft" && timer) {
         setCurrentRideIndex(i =>
@@ -61,6 +62,7 @@ function MyRidesMenu({ Data: { characterId, rides } }) {
                   axios.post(`https://${GetParentResourceName()}/free`, { rideId: ride.id });
                 }
                 setModalOn(false);
+                setCurrentRideIndex(0);
               }}>{Data.Lang.Ok}</button>
               <button onClick={() => { setModalOn(false) }}>{Data.Lang.Cancel}</button>
             </span>

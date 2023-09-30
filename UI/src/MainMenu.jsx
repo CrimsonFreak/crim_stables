@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react"
 import { Data, RouteCtx } from "./App"
 import axios from "axios";
 
-function MainMenu({transferedRides}) {
+function MainMenu({transferedRides, rides}) {
   const setRoute = useContext(RouteCtx);
   useEffect(() => {
     document.onkeydown = (e) => {
@@ -18,7 +18,11 @@ function MainMenu({transferedRides}) {
       <menu>
         <span onClick={() => setRoute("/buyhorse")}>{Data.Lang.BuyAHorse}</span>
         <span onClick={() => setRoute("/buycart")}>{Data.Lang.BuyACart}</span>
-        <span onClick={() => setRoute("/myrides")}>{Data.Lang.MyRides}</span>
+        {
+          rides && rides.length 
+          ? <span onClick={() => setRoute("/myrides")}>{Data.Lang.MyRides}</span>
+          : null
+        }
         {
           transferedRides && transferedRides?.length 
           ? <span onClick={() => setRoute("/recieve")}>{Data.Lang.RidesAwaitingTransfer}</span>
