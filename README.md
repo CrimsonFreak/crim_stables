@@ -6,6 +6,13 @@
 
 It is with great pleasure that I will introduce you to this plugin. The goal of it's making was to allow an easier workflow on vorp_stables, and to add a few features.
 
+### TL;DR
+- [For tips on how to use this plugin in-game](#Usage)
+- [For directions on the Config files](#Config)
+- [For developper info](#Developpers)
+- **[To keep the inventory from Vorp_Stables](#Migration)**
+
+
 ## New features
 - **Hard death** : You can now choose to activate a hard death for horses. On each death they will suffer long-term damages and when a threshold is reached, they are permanently dead. Everything is configurable.
 - **Custom vendor inventories** : you can now chose to limit the horses, carts and equipment a vendor sells.
@@ -15,7 +22,7 @@ It is with great pleasure that I will introduce you to this plugin. The goal of 
 - **Groom job** : the goal will be to buy/sell wild horses and train them to get a full groom RP experience.
 
 ## Usage
-Key aren't customizable yet, but might be in a future update.
+Keys aren't customizable yet, but might be in a future update.
 
 ### Basic Interactions
 
@@ -29,6 +36,16 @@ Key aren't customizable yet, but might be in a future update.
 Focus on horse to activate those (**right click**)
 - **B** : Brush horse (removes dirt)
 - **F** : Horse flees and despawns
+
+### UI
+- The UI is used with the mouse
+- **When arrows left and right are shown, there's no clicking on it, use left and right on the keyboard !**
+
+### Ride transfer
+You can transfer a horse/carriage to any other player, with a price or not. Your offer will first be registered on the server, then when the player next goes to a vendor, they'll have the option to accept your offer or not.
+
+### Equipment
+When you buy equiment, it is then stored in your stable inventory, and you can access it from the "Change equipment Menu" **Noting prevents you from buying the same Item twice so just be careful !**
 
 ## Migration
 The inventory system for horses and carriages has been modified. You will need to run the migration script to let your players keep their rides inventories.
