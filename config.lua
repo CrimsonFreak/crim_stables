@@ -5,16 +5,15 @@ Config = {
   MaxCarts = 1,
   StableSlots = 3,
 
-  JobRequired = true,
-
-  DisableBuyOptions = false, 
-
-  JobForHorseDealer = "Horsedealer",
-  JobForCarriagesDealer = "Carriagesdealer",
-  JobForHorseAndCarriagesDealer = "HorseAndCarriagesdealer",
+  -- Unused
+  -- JobRequired = false,
+  -- DisableBuyOptions = false, 
+  -- JobForHorseDealer = "Horsedealer",
+  -- JobForCarriagesDealer = "Carriagesdealer",
+  -- JobForHorseAndCarriagesDealer = "HorseAndCarriagesdealer",
 
   -- When a horse dies, make it unavailable for x seconds
-  SecondsToRespawn = 120,
+  SecondsToRespawn = 2400,
 
   -- The hard death mechanism will make a horse unavailable after it has died too many times
   -- Set false to disable or set true, then set overall health, and Check deathResasons.lua To
@@ -27,36 +26,33 @@ Config = {
 
   HorseSkillPullUpFailPercent = 20,
   DistanceToTeleport = 200,
+
+  --Should everyone Access the inventories of the horses/carts 
+  --//TODO To fully implement, let anyone open the inventory, not just the owner
   ShareInv = {
     horse = true,
     cart = true
   },
   
-  DefaultMaxWeight = 100,
-  CustomMaxWeight = {},
+  DefaultMaxWeight = 125,
+  CustomMaxWeight = {
+    huntercart01 = 200,
+    cart01= 150,
+    cart02= 140,
+    cart03= 175,
+    cart05= 150,
+    cart06= 210,
+    chuckwagon000x= 270,
+    chuckwagon002x= 290,
+    wagon02x= 250,
+    wagon03x= 160,
+    coach2= 200,
+    stagecoach001x= 200,
+    stagecoach003x= 180,
+    supplywagon= 270,
+  },
 
   Stables = {
-    {
-      Name = "Saint Denis Stable",
-      BlipIcon = 1938782895,
-      EnterStable = { 2510.58, -1456.83, 46.31, 2.0 },
-      StableNPC = { 2512.35, -1456.89, 45.2, 91.68 },
-      SpawnHorse = { 2508.59, -1449.96, 45.5, 90.09 },
-      CamHorse = { 2506.807, -1452.29, 48.61699, -34.77003, 0.0, -35.20742 },
-      CamHorseGear = { 2508.876, -1451.953, 48.67999, -35.29771, 0.0, -0.4993192 },
-      SpawnCart = { 2503.47, -1441.89, 46.31, 0.24 },
-      CamCart = { 2506.428, -1437.7, 50.57832, -39.4497, 0.0, 120.535 }
-    },
-    {
-      Name= "Ecurie de Valentine",
-      BlipIcon= 1938782895,
-      EnterStable= { -365.87, 789.51, 116.17, 2.0 },
-      StableNPC = { -365.15, 792.68, 115.18, 178.47 },
-      SpawnHorse = { -366.07, 781.81, 115.14, 5.97 },
-      CamHorse= { -367.9267, 783.0237, 117.7778, -36.42624, 0.0, -100.9786 },
-      CamHorseGear= { -367.9267, 783.0237, 117.7778, -36.42624, 0.0, -100.9786 },
-      SpawnCart= { -370.11, 786.99, 115.16, 274.18 },
-      CamCart= { -363.5831, 792.1113, 118.0419, -16.35144, 0.0, 143.9759 },
       --[[
         To setup a custom inventory for the stable, there are 2 ways 
         first of all use horses = {} and carts = {} do define them. If not defined or left empty, the vendor
@@ -70,6 +66,51 @@ Config = {
 
         hf
       ]]
+    {
+      Name= "Écurie de Valentine",
+      BlipIcon= 1938782895,
+      EnterStable= { -365.87, 789.51, 116.17, 2.0 },
+      StableNPC = { -365.15, 792.68, 115.18, 178.47 },
+      SpawnHorse = { -366.07, 781.81, 115.14, 5.97 },
+      CamHorse= { -367.9267, 783.0237, 117.7778, -36.42624, 0.0, -100.9786 },
+      CamHorseGear= { -367.9267, 783.0237, 117.7778, -36.42624, 0.0, -100.9786 },
+      SpawnCart= { -370.11, 786.99, 115.16, 274.18 },
+      CamCart= { -363.5831, 792.1113, 118.0419, -16.35144, 0.0, 143.9759 },
+
+    },
+    {
+      Name = "Écurie de Rhodes",
+      BlipIcon = 1938782895,
+      EnterStable = { 1432.97, -1295.39, 76.82, 2.0 },
+      StableNPC = { 1434.64, -1294.89, 76.82, 105.08 },
+      SpawnHorse = { 1431.56, -1288.21, 76.82, 87.28 },
+      CamHorse = { 1431.58, -1292.27, 79, -16, 0.0, 6 },
+      CamHorseGear = { 1431.58, -1292.27, 79, -16, 0.0, 6 },
+      SpawnCart = { 1414.53, -1294.22, 77.95, 285.53 },
+      CamCart = { 1416.7, -1301.12, 81, -16, 0.0, 6}
+    },
+    {
+      Name = "Écurie Wapiti",
+      BlipIcon = 1938782895,
+      EnterStable = { 482.06, 2215.17, 247.16, 2.0 },
+      StableNPC = { 480.43, 2213.17, 245.90, -44.71 },
+      SpawnHorse = { 485.49, 2209, 245.70, -27.54 },
+      CamHorse = { 483.39, 2211.93, 248, -19.14523, 0.0, 225 },
+      CamHorseGear = { 483.39, 2211.93, 247.58, -19.14523, 0.0, 225 },
+      SpawnCart = { 489.04, 2212.9, 246.95, -67 },
+      CamCart = { 483.36, 2219.16, 250.76, -25, 0.0, 233.68 }
+    }
+    --[[
+    {
+      Name = "Saint Denis Stable",
+      BlipIcon = 1938782895,
+      EnterStable = { 2510.58, -1456.83, 46.31, 2.0 },
+      StableNPC = { 2512.35, -1456.89, 45.2, 91.68 },
+      SpawnHorse = { 2508.59, -1449.96, 45.5, 90.09 },
+      CamHorse = { 2506.807, -1452.29, 48.61699, -34.77003, 0.0, -35.20742 },
+      CamHorseGear = { 2508.876, -1451.953, 48.67999, -35.29771, 0.0, -0.4993192 },
+      SpawnCart = { 2503.47, -1441.89, 46.31, 0.24 },
+      CamCart = { 2506.428, -1437.7, 50.57832, -39.4497, 0.0, 120.535 }
     },
     {
       Name = "Strawberry Stable",
@@ -104,6 +145,7 @@ Config = {
       SpawnCart = { -5520.65, -3044.3, -3.39, 270.83 },
       CamCart = { -5514.191, -3040.633, -0.5108569, -18.79705, 0.0, 141.3175 }
     }
+    ]]
   }
 }
 
