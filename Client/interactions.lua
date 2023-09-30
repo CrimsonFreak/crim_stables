@@ -125,7 +125,7 @@ function CallHorse(ride)
         Citizen.InvokeNative(0x6A071245EB0D1882, ride.pedId, PlayerPedId(), -1, 4.0, 100.0, 0, 0) -- GoToEntity
         -- Citizen.InvokeNative(0x5BC448CB78FA3E88, ride.pedId, x, y, z, 100.0, 0, 0, 0, 0) -- GoToCoordsAnyMeans
 
-    elseif IsMountSeatFree(CurrentCart.pedId) then
+    elseif IsMountSeatFree(ride.pedId) then
         DeletePed(CurrentHorse.pedId)
         CurrentHorse.pedId = nil
         CallHorse(CurrentHorse)
