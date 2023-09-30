@@ -35,7 +35,6 @@ function App() {
       }
       else if (type === "refresh") {
         if (Data == null) return;
-        setRoute("/");
         Data.player = content.player;
         Data.current = content.current;
         setM_Data({ ...Data });

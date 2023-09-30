@@ -52,6 +52,7 @@ function BuyCompsMenu({ Comps, buyable, horseId }) {
               <span key={modelName} onClick={() => { setModel({ name: modelName, variants, v: 0 }) }}>
                 <label>{modelName} {modelName === model?.name ? "◄ " + model.v + " ►" : null}</label>
                 <button onClick={() => {
+                  if(!model) return;
                   axios.post(`https://${GetParentResourceName()}/buyComp`, {
                     compType: viewType.type,
                     compModel: variants[model.v],
