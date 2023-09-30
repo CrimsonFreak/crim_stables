@@ -260,6 +260,8 @@ Data = {
         ["A_C_Horse_Mustang_GrulloDun"] = 100,
         ["A_C_Horse_Mustang_TigerStripedBay"] = 100,
         ["A_C_Horse_Mustang_WildBay"] = 100,
+        ["A_C_Horse_Mustang_RedDunOvero"] = 100,
+        ["A_C_Horse_Mustang_BlackOvero"] = 100,
 
         ["A_C_Horse_Nokota_BlueRoan"] = 100,
         ["A_C_Horse_Nokota_ReverseDappleRoan"] = 100,
@@ -304,12 +306,12 @@ Data = {
         ["A_C_Horse_Breton_Sorrel"] = 100,
         ["A_C_Horse_Breton_RedRoan"] = 100,
 
-        ["A_C_Horse_NorfolkRoadster_BLACK"] = 100,
-        ["A_C_Horse_NorfolkRoadster_SPECKLEDGREY"] = 100,
-        ["A_C_Horse_NorfolkRoadster_PIEBALDROAN"] = 100,
-        ["A_C_Horse_NorfolkRoadster_ROSEGREY"] = 100,
-        ["A_C_Horse_NorfolkRoadster_DAPPLEDBUCKSKIN"] = 100,
-        ["A_C_Horse_NorfolkRoadster_SPOTTEDTRICOLOR"] = 100,
+        ["A_C_Horse_NorfolkRoadster_Black"] = 100,
+        ["A_C_Horse_NorfolkRoadster_SpeckledGrey"] = 100,
+        ["A_C_Horse_NorfolkRoadster_PiebaldRoan"] = 100,
+        ["A_C_Horse_NorfolkRoadster_RoseGrey"] = 100,
+        ["A_C_Horse_NorfolkRoadster_DappledBuckskin"] = 100,
+        ["A_C_Horse_NorfolkRoadster_SpottedTricolor"] = 100,
 
         ["A_C_HorseMulePainted_01"] = 100,
         ["A_C_HorseMule_01"] = 100,

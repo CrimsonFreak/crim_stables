@@ -68,8 +68,9 @@ RegisterNuiCallback("activateCam", function(data, callback)
         fov = 50.0
     end
 
+
     DestroyCam(instanceCam, true)
-    instanceCam = CreateCamWithParams("DEFAULT_SCRIPTED_CAMERA", x, y, z, rx, ry, rz, fov, false, 0);
+    instanceCam = Citizen.InvokeNative(0x40C23491CE83708E,"DEFAULT_SCRIPTED_CAMERA", x, y, z, rx, ry, rz, fov, false, 0);
     SetCamActive(instanceCam, true);
     RenderScriptCams(true, true, 1000, true, true, 0);
 
