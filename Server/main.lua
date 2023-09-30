@@ -12,13 +12,16 @@ RegisterNetEvent(Events.loadStable, function(charid)
     local src = source
     LoadStableContent(src, charid)
 end)
+
 RegisterNetEvent(Events.loadStableRuntime, function()
     local src = source
     local id = VorpCore.getUser(src).getUsedCharacter.charIdentifier
     LoadStableContent(src, id)
 end)
 
+-- Everytime a DB action is made, this function gets called to sync data on the client with data in the DB
 function LoadStableContent(src, charId)
+    -- Retrieve owned rides, and rides transfered to this player
     db:execute(
         "SELECT * FROM stables WHERE `charidentifier`=? OR `status` LIKE '%\"transferTarget\":?,%' OR `status` LIKE '%\"transferTarget\":?}'",
         {charId, charId, charId}, function(result)
@@ -77,8 +80,8 @@ RegisterNetEvent(Events.onBuyRide, function(rideName, rideModel, rideType, price
     db:execute("INSERT INTO stables (`charidentifier`, `name`, `type`, `modelname`) VALUES (?, ?, ?,?)",
         {id, rideName, rideType, rideModel}, function(result)
             if result.affectedRows > 0 then
-                TriggerClientEvent("vorp:TipRight", src, Config.Lang.TipRidePurchased:gsub("%{rideName}", rideName)
-                    :gsub("%{price}", price), 4000)
+                TriggerClientEvent("vorp:TipRight", src,
+                    Config.Lang.TipRidePurchased:gsub("%{rideName}", rideName):gsub("%{price}", price), 4000)
                 LoadStableContent(src, id)
             end
         end)
@@ -94,15 +97,17 @@ RegisterNetEvent(Events.onBuyComp, function(compModel, compType, price, horseId,
         return TriggerClientEvent("vorp:TipRight", src, Config.Lang.TipCantAfford, 4000)
     end
     compModel = tonumber(compModel)
-    player.removeCurrency(0, price)
     local compsForDB = {}
     horseComps[compType] = compModel
     local alreadyHasComp = false
+
+    -- When a comp is bought, check the comps the player already owns
+    -- If not owned, add to table, else set alReadyHasComp to true to prevent a DB operation
     for compTypeName, compModels in pairs(playerAvailableComps) do
         for compModelName, comps in pairs(compModels) do
             for k, comp in ipairs(comps) do
-                compModels = tonumber(comp)
-                table.insert(compsForDB, 1, compModels)
+                local compHash = tonumber(comp)
+                table.insert(compsForDB, 1, compHash)
                 if comp == compModel then
                     alreadyHasComp = true
                     break
@@ -120,9 +125,9 @@ RegisterNetEvent(Events.onBuyComp, function(compModel, compType, price, horseId,
         end
     end
 
-    
     db:execute("UPDATE stables SET `gear` = ? WHERE `id` = ?", {json.encode(horseComps), horseId}, function(result)
         if result.affectedRows > 0 then
+            player.removeCurrency(0, price)
             TriggerClientEvent("vorp:TipRight", src,
                 Config.Lang.TipSuccessfulBuyComp:gsub("%{0}", compType):gsub("%{1}", price), 4000)
             if not alreadyHasComp then
@@ -162,6 +167,7 @@ RegisterNetEvent(Events.onTransfer, function(rideId, targetChar, price, activePl
     local player = VorpCore.getUser(src).getUsedCharacter
     local id = player.charIdentifier
     local targetSource = nil
+    -- Check if recieving player is connected so their stable content gets refreshed
     for k, v in ipairs(activePlayers) do
         local u = VorpCore.getUser(v)
         if u ~= nil then
@@ -173,6 +179,8 @@ RegisterNetEvent(Events.onTransfer, function(rideId, targetChar, price, activePl
             end
         end
     end
+
+    -- The ride isn't directly transfered, the offer is stored in the ride status for the recieving player to accept or not
     db:execute("UPDATE stables SET status = ? WHERE `id` = ?", {json.encode({
         transferTarget = targetChar,
         price = price
@@ -257,26 +265,29 @@ RegisterNetEvent(Events.setDefault, function(newRide, prevRide)
 end)
 
 RegisterNetEvent(Events.onHorseDown, function(rideId, killerObjectHash)
+    -- HardDeath management
+    if not Config.HardDeath then
+        return
+    end
     local src = source
     local player = VorpCore.getUser(src).getUsedCharacter
     local id = player.charIdentifier
-    if Config.HardDeath then
-        print("Killed by " .. tostring(killerObjectHash))
-        local LTDamages = DeathReasons[killerObjectHash] or DeathReasons.Default
-        db:execute("UPDATE stables SET injured = injured + ? WHERE `id` = ?", {LTDamages, rideId}, function(updated)
-            if updated.affectedRows > 0 then
-                db:execute("SELECT injured FROM stables WHERE `id` = ?", {rideId}, function(result)
-                    if result[1].injured >= Config.LongTermHealth then
-                        db:execute("DELETE FROM stables WHERE `id` = ?", {rideId}, function(deleted)
-                            if deleted.affectedRows > 0 then
-                                TriggerClientEvent("vorp:TipRight", src, Config.Lang.TipHorseDeadDefinitive, 4000)
-                                LoadStableContent(src, id)
-                            end
-                        end)
-                    end
-                end)
-            end
-        end)
-    end
+    print("Killed by " .. tostring(killerObjectHash))
+    local LTDamages = DeathReasons[killerObjectHash] or DeathReasons.Default
+    db:execute("UPDATE stables SET injured = injured + ? WHERE `id` = ?", {LTDamages, rideId}, function(updated)
+        if updated.affectedRows > 0 then
+            db:execute("SELECT injured FROM stables WHERE `id` = ?", {rideId}, function(result)
+                if result[1].injured >= Config.LongTermHealth then
+                    db:execute("DELETE FROM stables WHERE `id` = ?", {rideId}, function(deleted)
+                        if deleted.affectedRows > 0 then
+                            TriggerClientEvent("vorp:TipRight", src, Config.Lang.TipHorseDeadDefinitive, 4000)
+                            LoadStableContent(src, id)
+                        end
+                    end)
+                end
+            end)
+        end
+    end)
+
 end)
 

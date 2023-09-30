@@ -10,6 +10,7 @@ function getPositionBehindPlayer(playerX, playerY, playerZ, playerHeading, dist)
     return {newX,newY, playerZ}
 end
 
+-- //TODO unify CallHorse and CallCart since the functions are very similar
 function CallHorse(ride)
     if ride == nil then
         TriggerEvent("vorp:TipRight", Config.Lang.TipNoDefaultHorse, 2000);
@@ -130,8 +131,6 @@ function CallHorse(ride)
         CallHorse(CurrentHorse)
     end
 
-    ClearPedTasks(ride.pedId, true, true)
-
 end
 
 function CallCart(ride)
@@ -204,7 +203,7 @@ function ActionsOnKeyPress()
     -- On horse actions : https://github.com/femga/rdr3_discoveries/tree/master/tasks/TASK_HORSE_ACTION
     -- Citizen.InvokeNative(0xA09CFD29100F06C3,horse_ped_id, 2, 0, 0)  -- horse throw off rider and passenger
 
-    if IsControlJustPressed(0, 0x24978A28) then
+    if IsControlJustPressed(0, Keys.H) then
         CallHorse(CurrentHorse)
     end
     if IsControlJustPressed(0, Keys.J) then
@@ -235,6 +234,7 @@ function ActionsOnKeyPress()
         BrushHorse(aim)
     end
     -- Open inventories
+    -- //TODO let anyone open if set in Config
     if CurrentHorse ~= nil and CurrentHorse.pedId and
         #(GetEntityCoords(PlayerPedId()) - GetEntityCoords(CurrentHorse.pedId)) <= 5.0 and
         IsControlJustPressed(0, Keys.U) then
@@ -265,6 +265,7 @@ function DeathManager()
 end
 
 function ControlChecker()
+    --Dev function to print key names on press
     for k, v in pairs(Keys) do
         if IsControlJustPressed(0, v) then
             print("Control 0 pressed : " .. k)
