@@ -166,7 +166,7 @@ AddEventHandler("onResourceStop", function(resourceName)
 end)
 
 AddEventHandler("onResourceStart", function(resourceName)
-    if (resourceName == GetCurrentResourceName()) then
+    if resourceName == GetCurrentResourceName() and Config.DevMode then
         TriggerServerEvent(Events.loadStableRuntime)
     end
 end)

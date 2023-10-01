@@ -1,5 +1,6 @@
 Config = {
-    Lang = Langs.Fr,
+    DevMode = false,
+    Lang = Langs.En,
     StaticData = Data,
     MaxHorses = 3,
     MaxCarts = 1,
